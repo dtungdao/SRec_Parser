@@ -33,6 +33,9 @@ class S19Parser():
 		s19 = S19Parser.S19Struct()
 		lines = s19_file.readlines()
 		
+		# check s-record format
+		if(line[0] != 'S'): raise Exception('Wrong S-Record file format at "%s" is not correct' % (line))
+		
 		for line in lines:
 			line = line.strip()
 
