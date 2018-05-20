@@ -103,7 +103,7 @@ class SrecReader():
 				if(srec.srec_cnt == None): pass
 				else: raise Exception('Found more than one "S6" record in file')
 			elif(record_type == "S7"):
-				if( srec.exe_start_addr ):	
+				if( srec.exe_start_addr == None ):	
 					srec.exe_start_addr = int(line[4 : 4 + (byte_cnt * 2) - 2], 16)
 				else: raise Exception('Found more than one "S7" record in file')
 		
